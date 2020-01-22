@@ -11,7 +11,7 @@ class Ticket extends Model
     protected $fillable = [
         'cat_incident',
         'niveau_sev',
-        'description',
+        'description'
     ];
     public function employe()
     {
@@ -21,6 +21,12 @@ class Ticket extends Model
     public function techniciens()
     {
         return $this->belongsToMany(Technicien::class);
+
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 

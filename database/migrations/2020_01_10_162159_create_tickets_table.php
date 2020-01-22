@@ -19,14 +19,20 @@ class CreateTicketsTable extends Migration
             $table->bigIncrements('id_ticket');
             $table->string('cat_incident');
             $table->string('niveau_sev');
-            $table->string('description');
+            $table->text('description');
             $table->timestamps();
-            $table->bigInteger('id_empl');
+          //  $table->bigInteger('id_empl');
+            $table->bigInteger('id');
 
-
-            $table->foreign('id_empl')
+           /* $table->foreign('id_empl')
             ->references('id_empl')
             ->on('employes')
+            ->onDelete('restrict')
+            ->onUpdate('restrict');
+            */
+            $table->foreign('id')
+            ->references('id')
+            ->on('users')
             ->onDelete('restrict')
             ->onUpdate('restrict');
 

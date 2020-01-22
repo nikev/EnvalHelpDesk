@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+
+//route pour la deconnexion
+Route::get('/logout', function(){
+    Auth::logout();
+    return Redirect::to('login');
+ });
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('creer', 'TicketsController@create');
+Route::post('creer', 'TicketsController@store');
+

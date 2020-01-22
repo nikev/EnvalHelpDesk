@@ -21,7 +21,15 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->bigInteger('id_serv')->nullable();
+
+             $table->foreign('id_serv')
+             ->references('id_serv')
+             ->on('services')
+             ->onDelete('restrict')
+             ->onUpdate('restrict');
         });
+
     }
 
     /**
