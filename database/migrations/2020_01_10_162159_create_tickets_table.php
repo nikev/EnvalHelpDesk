@@ -22,7 +22,7 @@ class CreateTicketsTable extends Migration
             $table->text('description');
             $table->timestamps();
           //  $table->bigInteger('id_empl');
-            $table->bigInteger('id');
+            $table->bigInteger('id_user');
 
            /* $table->foreign('id_empl')
             ->references('id_empl')
@@ -30,7 +30,7 @@ class CreateTicketsTable extends Migration
             ->onDelete('restrict')
             ->onUpdate('restrict');
             */
-            $table->foreign('id')
+            $table->foreign('id_user')
             ->references('id')
             ->on('users')
             ->onDelete('restrict')

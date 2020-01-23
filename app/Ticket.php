@@ -9,6 +9,7 @@ class Ticket extends Model
 {
 
     protected $fillable = [
+
         'cat_incident',
         'niveau_sev',
         'description'

@@ -53,23 +53,23 @@ class TicketsController extends Controller
           ]);*/
 
             $ticket = new Ticket;
-            $ticket->id= Auth::id();
+            $ticket->id_user= Auth::id();
             $ticket->cat_incident= request('categorie');
             $ticket->niveau_sev = request('niv_sev');
             $ticket->description = request('description');
             $ticket->save();
 
-       // return (" ticket créé avec succès");
+
       $data = array(
             'cat'   =>  $request->categorie,
             'niv'   =>  $request->niv_sev,
             'descr' =>  $request->description,
-            'id'    => Auth::id(),
+            'id_user'=> Auth::id(),
             'user_name'=> Auth::user()->name,
-            'serv'=> $request->serv
+            'serv'=> $request->serv,
         );
         Mail::to('helpdesk@email.com')->send(new EnvMail($data));
-
+             return (" ticket créé avec succès");
 
     }
 
