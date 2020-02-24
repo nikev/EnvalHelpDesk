@@ -18,6 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 
+
+
 //route pour la deconnexion
 Route::get('/logout', function(){
     Auth::logout();
@@ -26,5 +28,9 @@ Route::get('/logout', function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('creer', 'TicketsController@create');
-Route::post('creer', 'TicketsController@store');
+Route::post('creer', 'TicketsController@store')->name('creer');
+Route::get('liste', 'TicketsController@index');
+Route::get('user', 'TicketsController@userTickets');
+
+
 

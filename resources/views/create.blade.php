@@ -8,7 +8,7 @@
                 <div class="card-header">CREER UN TICKET</div>
 
                 <div class="card-body">
-                    <form method="POST" action="creer">
+                    <form method="POST" action={{ route('creer') }}>
                         {{ csrf_field() }}
 
 

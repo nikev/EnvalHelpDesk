@@ -22,8 +22,18 @@ class TicketsController extends Controller
      */
     public function index()
     {
+        $data['tickets'] = Ticket::orderBy('id_ticket','asc')->paginate(10);
 
+        return view('liste_tickets',$data);
     }
+
+    public function userTickets()
+    {
+        $tickets = Ticket::where('id_user', Auth::user()->id)->paginate(10);
+
+        return view('user_tickets', compact('tickets'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

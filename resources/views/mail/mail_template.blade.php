@@ -9,9 +9,9 @@ Description : **{{ $data['descr'] }}**
 
 
 
- {{-- @component('mail::button', ['url' => $link])
-Go to your inbox
-@endcomponent--}}
+@component('mail::button', ['url' => 'http://127.0.0.1:8000/liste'])
+Tableau de bord
+@endcomponent
 
 Cordialement,
 Enval Helpdesk.
