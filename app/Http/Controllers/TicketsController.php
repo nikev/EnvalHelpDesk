@@ -20,12 +20,16 @@ class TicketsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function adminticketsview()
     {
         $data['tickets'] = Ticket::orderBy('id_ticket','asc')->paginate(10);
 
         return view('liste_tickets',$data);
     }
+
+
+
+
 
     public function userTickets()
     {
@@ -79,8 +83,7 @@ class TicketsController extends Controller
             'serv'=> $request->serv,
         );
         Mail::to('helpdesk@email.com')->send(new EnvMail($data));
-             return (" ticket créé avec succès");
-
+        return redirect('accueil');
     }
 
     /**
